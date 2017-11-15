@@ -55,4 +55,16 @@ class AppHelper:NSObject {
 		let result = emailTest.evaluate(with: testStr)
 		return result
 	}
+
+	class func openURL(Url:String) {
+		guard let url = URL(string: "\(Url)") else {
+			return
+		}
+
+		if #available(iOS 10.0, *) {
+			UIApplication.shared.open(url, options: [:], completionHandler: nil)
+		} else {
+			UIApplication.shared.openURL(url)
+		}
+	}
 }

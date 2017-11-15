@@ -53,28 +53,12 @@ class FeedDetaislViewController: UIViewController {
 
 
 	@IBAction func moreButton(_ sender: UIButton) {
-		guard let url = URL(string: "\(song.artistUrl)") else {
-			return
-		}
-
-		if #available(iOS 10.0, *) {
-			UIApplication.shared.open(url, options: [:], completionHandler: nil)
-		} else {
-			UIApplication.shared.openURL(url)
-		}
+		AppHelper.openURL(Url: song.artistUrl)
 	}
 
 
 	@IBAction func iTunes(_ sender: UIButton) {
-		guard let url = URL(string: "\(song.url)") else {
-			return
-		}
-
-		if #available(iOS 10.0, *) {
-			UIApplication.shared.open(url, options: [:], completionHandler: nil)
-		} else {
-			UIApplication.shared.openURL(url)
-		}
+		AppHelper.openURL(Url: song.url)
 	}
 
 
