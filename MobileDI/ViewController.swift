@@ -52,8 +52,5 @@ class ViewController: UIViewController {
 			Toast(text: "Invalid Email", delay: Delay.short, duration: Delay.long).show()
 		}
 	}
-
-
-
 }
 

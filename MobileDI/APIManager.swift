@@ -49,7 +49,4 @@ class APIManager {
 			}
 			task.resume()
 		}
-
-
 }
-//cannot invoke 'global' with an argument list of type '(DispatchQueue.GlobalQueuePriority, int)'

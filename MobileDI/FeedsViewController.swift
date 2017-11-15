@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import EZLoadingActivity
+import Toaster
 
 
 private let reuseIdentifier = "Cell"
@@ -21,15 +22,13 @@ class FeedsViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		
-
 		//Call API
 		if AppHelper.checkForInternetConnection() {
 			EZLoadingActivity.show("Loading...", disableUI: true)
 			let API = APIManager()
 			API.loadData(urlString: iTunesURL,completion:didLoadData)
 		} else {
-
+			Toast(text: "No Internet Connection", delay: Delay.short, duration: Delay.long).show()
 		}
 
     }
@@ -38,7 +37,6 @@ class FeedsViewController: UIViewController, UICollectionViewDelegate, UICollect
 	}
 
 	func didLoadData(result:[Song]){
-		print("\(songs.count)")
 		songs = result
 		EZLoadingActivity.hide(true, animated: true)
 		feedsCollectinView.reloadData()
@@ -52,8 +50,6 @@ class FeedsViewController: UIViewController, UICollectionViewDelegate, UICollect
 		let viewController = storyboard.instantiateViewController(withIdentifier :"ViewController") as! ViewController
 		self.present(viewController, animated: true)
 	}
-
-
 
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
@@ -74,8 +70,6 @@ class FeedsViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showSongDetail" {
 			if let indexPaths = feedsCollectinView?.indexPathsForSelectedItems {
@@ -85,6 +79,4 @@ class FeedsViewController: UIViewController, UICollectionViewDelegate, UICollect
 			}
 		}
     }
-
-
 }

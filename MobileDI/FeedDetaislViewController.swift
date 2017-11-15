@@ -19,13 +19,7 @@ class FeedDetaislViewController: UIViewController {
 		}
 	}
 
-
-	@IBOutlet weak var viewBtn: UIButton! {
-		didSet {
-
-		}
-	}
-
+	@IBOutlet weak var viewBtn: UIButton!
 
 	@IBOutlet weak var nameLabel: UILabel! {
 		didSet {
@@ -51,16 +45,13 @@ class FeedDetaislViewController: UIViewController {
 		}
 	}
 
-
 	@IBAction func moreButton(_ sender: UIButton) {
 		AppHelper.openURL(Url: song.artistUrl)
 	}
 
-
 	@IBAction func iTunes(_ sender: UIButton) {
 		AppHelper.openURL(Url: song.url)
 	}
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,16 +63,5 @@ class FeedDetaislViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
