@@ -11,3 +11,6 @@ This Application Accepts the Valid Email and dummy Password.
 ![Alt text](https://media.giphy.com/media/xUOxeVSUhnWUCsB7W0/giphy.gif?raw=true "Optional Title")
 
 
+This Application is Supported only on iPhone.
+
+
