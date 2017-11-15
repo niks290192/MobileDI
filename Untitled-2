@@ -1,4 +1,0 @@
-target 'MobileDI' do
-  use_frameworks!
-  pod 'Alamofire'
-end
